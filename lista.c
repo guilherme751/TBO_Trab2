@@ -13,11 +13,11 @@ struct Celula {
     tCelula* ult;
  };
  
- int EhListaVazia (tLista* lista) {
+bool EhListaVazia (tLista* lista) {
     if (lista->prim == NULL && lista->ult ==NULL)
-        return 1;
+        return true;
     else    
-        return 0;    
+        return false;    
  }
 
 tLista* IniciaLista () {

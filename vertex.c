@@ -40,7 +40,3 @@ void setTipo (Vertex* v, int tipo) {
 int getTipo (Vertex* v) {
     return v->tipo;
 }
-
-void printvertex (Vertex* v) {
-    printf("id: %d\n", v->id);
-}

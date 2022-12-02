@@ -67,6 +67,6 @@ void setTipo (Vertex* v, int tipo);
  */
 int getTipo (Vertex* v);
 
-void printvertex (Vertex* v);
+
 
 #endif

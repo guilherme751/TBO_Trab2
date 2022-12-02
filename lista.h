@@ -20,7 +20,7 @@ tLista* IniciaLista ();
  * @param lista 
  * @return int 
  */
-int EhListaVazia (tLista* lista);
+bool EhListaVazia (tLista* lista);
 /**
  * @brief Insere um vértice na lista com peso
  * 
@@ -29,16 +29,6 @@ int EhListaVazia (tLista* lista);
  * @param lista 
  */
 void InsereLista (Vertex* vertice, long double peso, tLista* lista); 
-/**
- * @brief 
- * 
- * @param lista 
- * @param peso 
- * @param i 
- * @return Vertex* 
- */
-Vertex* RetornaVerticeIcomPeso (tLista* lista, long double* peso, int i);
-
 
 /**
  * @brief Libera memória alocada

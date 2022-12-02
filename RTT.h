@@ -5,22 +5,28 @@
 /**
  * @brief Um RTT (Round Trip Time) entre um servidor e um cliente, 
  * armazena o RTT real, aproximado e a relação entre ambos
+ * RTT(a,b) = RTT entre o servidor a e o cliente b
  * 
  */
 typedef struct rtt RTT;
 /**
- * @brief Inicia um RTT v
+ * @brief Inicia um RTT 
  * 
  * @return RTT* 
  */
 RTT * RTT_create();
 /**
- * @brief Libera memória alocada 
+ * @brief Libera memória alocada por um RTT
  * 
  * @param rtt 
  */
 void RTT_destroy (RTT* rtt);
-
+/**
+ * @brief Imprime num arquivo o RTT
+ * 
+ * @param f 
+ * @param rtt 
+ */
 void RTT_fprint (FILE* f, RTT* rtt);
 /**
  * @brief Set o servidor 'a' e o cliente 'b' para um RTT
@@ -78,7 +84,13 @@ void RTT_sort (RTT** rttvec, int size);
  * @return double 
  */
 double retornaFrac (RTT* rtt);
-
+/**
+ * @brief Imprime um vetor de ponteiros para RTTs num arquivo
+ * 
+ * @param f 
+ * @param rttvec 
+ * @param size 
+ */
 void RTTvec_fprint (FILE* f, RTT** rttvec, int size);
 
 #endif

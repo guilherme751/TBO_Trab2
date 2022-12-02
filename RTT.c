@@ -6,7 +6,7 @@ struct rtt {
     long double real;
     long double aprox;
     long double frac;
-    int a, b;
+    int a, b; 
 };
 
 static int compFunc (const void* a, const void* b) {
@@ -31,7 +31,11 @@ void RTT_destroy (RTT* rtt) {
 }
 
 void RTT_fprint (FILE* f, RTT* rtt) {
-    fprintf(f, "%d %d %.16lf\n", rtt->a, rtt->b, (double)rtt->frac);
+    if (rtt->frac == 1) {
+        fprintf(f, "%d %d %.1LF\n", rtt->a, rtt->b, rtt->frac);
+    }
+    else
+        fprintf(f, "%d %d %.16LF\n", rtt->a, rtt->b, rtt->frac);
 }
 
 void set_a_b (RTT* rtt, int a, int b) {
@@ -67,12 +71,6 @@ void RTTvec_destroy (RTT** rttvec, int size) {
     free(rttvec);
 }
 
-void RTTvec_fprint (FILE* f, RTT** rttvec, int size) {
-    for (int i=0; i<size; i++) {
-        RTT_fprint(f, rttvec[i]);
-    }
-}
-
 void RTT_sort (RTT** rttvec, int size) {
     qsort(rttvec, size, sizeof(RTT*), compFunc);
 }
@@ -80,3 +78,8 @@ void RTT_sort (RTT** rttvec, int size) {
 double retornaFrac (RTT* rtt) {
     return rtt->frac;
 } 
+void RTTvec_fprint (FILE* f, RTT** rttvec, int size) {
+    for (int i=0; i<size; i++) {
+        RTT_fprint(f, rttvec[i]);
+    }
+}
